@@ -51,7 +51,7 @@ def o3d_point_to_plane_icp(source_pcd, target_pcd, threshold, max_iterations):
     # Run ICP
     reg_p2l = o3d.pipelines.registration.registration_icp(
         source_pcd, target_pcd, threshold, np.eye(4),
-        o3d.pipelines.registration.TransformationEstimationPointToPlane(),
+        o3d.pipelines.registration.TransformationEstimationForGeneralizedICP(),
         o3d.pipelines.registration.ICPConvergenceCriteria(max_iteration=max_iterations)
     )
     return reg_p2l.transformation, reg_p2l.fitness, reg_p2l.inlier_rmse
