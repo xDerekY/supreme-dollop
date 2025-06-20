@@ -6,6 +6,7 @@ cachetools==6.1.0
 certifi==2025.6.15
 charset-normalizer==3.4.2
 click==8.1.8
+pybind11==2.11.1
 colorama==0.4.6
 comm==0.2.2
 ConfigArgParse==1.7.1
