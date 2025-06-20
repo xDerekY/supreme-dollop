@@ -297,7 +297,7 @@ if st.button("▶️ Run Alignment", type="primary"):
             
 
             if mode == "2. Test with a Single Surface (Synthetic Transform)":
-                recovered_true_R = icp_R.T
+                recovered_true_R = np.array(icp_R.T, copy=True)  # Force writable copy
                 r_angles_recovered = Rotation.from_matrix(recovered_true_R).as_euler('xyz', degrees=True)
                 recovered_true_t = recovered_true_R @ center - center - recovered_true_R @ icp_t#- R_o3d_icp.T @ t_o3d_icp
                 # In synthetic mode, we compare recovered vs true values
